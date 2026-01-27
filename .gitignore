@@ -1,0 +1,80 @@
+# Fichiers de simulation
+sim_build/
+*.o
+*.cf
+*.vcd
+*.ghw
+*.fst
+*.lxt
+*.lxt2
+*.vcd.gz
+work-obj08.cf
+
+# Fichiers de compilation GHDL
+*.exe
+*.o
+*.cf
+e~*.o
+
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+*.jou
+*.str
+*.wdb
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Résultats de simulation
+*.xml
+*.json
+*.txt
+
+# Fichiers spécifiques à cocotb
+cocotb.*.log
+cocotb.*.xml
+cocotb.*.json
+
+# Fichiers de couverture
+coverage.xml
+htmlcov/
+.coverage
+.coverage.*
+.cache
+
+# Fichiers de build
+build/
+dist/
+*.egg-info/
+
+# Environnements virtuels Python
+.python-version
+pyvenv.cfg
+Pipfile
+Pipfile.lock
+poetry.lock
