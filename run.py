@@ -37,10 +37,10 @@ run(
     simulator="ghdl",
     vhdl_sources=[
         "rtl/add_rtl.vhd",   
-        "rtl/mult_rtl.vhd",    
+        "rtl/mult_rtl.vhd",  
         "rtl/reg_rtl.vhd",   
-        "rtl/pe_fir_rtl.vhd",
-        ],
+        "rtl/pe_fir_rtl.vhd", 
+    ],
     toplevel="pe_fir_rtl",
     module="tests.test_pe",  
     vhdl_compile_args=["--std=08"],
