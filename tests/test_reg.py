@@ -67,12 +67,11 @@ async def test_reg_simple(dut):
     
     cocotb.log.info("=== Simple Step Test ===")
     
-    # Start with everything known
     dut.reset.value = 0
     dut.i_r.value = 0
     await Timer(5, unit="ns")
     
-    # Step 1: Apply reset
+    #Apply reset
     dut.reset.value = 1
     dut.clk.value = 1  # Rising edge
     await Timer(5, unit="ns")
@@ -82,10 +81,10 @@ async def test_reg_simple(dut):
     await Timer(5, unit="ns")
     cocotb.log.info(f"Step 2 (reset=1, clk=0): out_r={dut.out_r.value}")
     
-    # Step 3: Release reset, apply value
+    # Release reset, apply value
     dut.reset.value = 0
     dut.i_r.value = 0x55
-    dut.clk.value = 1  # Rising edge to capture
+    dut.clk.value = 1 
     await Timer(5, unit="ns")
     cocotb.log.info(f"Step 3 (i_r=0x55, clk=1): out_r={dut.out_r.value}")
     
@@ -93,7 +92,7 @@ async def test_reg_simple(dut):
     await Timer(5, unit="ns")
     cocotb.log.info(f"Step 4 (clk=0): out_r={dut.out_r.value}")
     
-    # Step 5: Next value
+    # Next value
     dut.i_r.value = 0xAA
     dut.clk.value = 1
     await Timer(5, unit="ns")

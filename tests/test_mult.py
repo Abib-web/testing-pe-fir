@@ -11,7 +11,7 @@ async def test_mult_basic(dut):
     dut.reset.value = 0
     dut.i_a.value = 3
     dut.i_b.value = 4
-    await Timer(10, unit="ns")  # Wait for propagation
+    await Timer(10, unit="ns")  
     
     result = int(dut.out_c.value)
     expected = 3 * 4  # 12
@@ -28,12 +28,12 @@ async def test_mult_basic(dut):
     
     # Test 3: Negative values
     dut.reset.value = 0
-    dut.i_a.value = -5  # 8-bit signed
+    dut.i_a.value = -5  
     dut.i_b.value = 3
     await Timer(10, unit="ns")
     
     result = int(dut.out_c.value)
-    expected = (-5 * 3) & 0xFFFF  # Mask to 16 bits
+    expected = (-5 * 3) & 0xFFFF  
     
     # Show signed value for clarity
     result_signed = result if result < 32768 else result - 65536
@@ -48,16 +48,15 @@ async def test_mult_random(dut):
     
     # Test 10 random multiplications
     for i in range(10):
-        a = random.randint(-128, 127)  # 8-bit signed
-        b = random.randint(-128, 127)  # 8-bit signed
-        
+        a = random.randint(-128, 127) 
+        b = random.randint(-128, 127)          
         dut.reset.value = 0
-        dut.i_a.value = a & 0xFF  # Mask to 8 bits
+        dut.i_a.value = a & 0xFF        
         dut.i_b.value = b & 0xFF
-        await Timer(10, unit="ns")  # Wait for propagation
+        await Timer(10, unit="ns")  
         
         result = int(dut.out_c.value)
-        expected = (a * b) & 0xFFFF  # Mask to 16 bits
+        expected = (a * b) & 0xFFFF  
         
         # Convert for display
         result_signed = result if result < 32768 else result - 65536
