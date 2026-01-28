@@ -47,17 +47,16 @@ async def test_add_random(dut):
     
     # Test 10 random additions
     for i in range(10):
-        a = random.randint(-32768, 32767)  # 16-bit signed
-        b = random.randint(-32768, 32767)  # 16-bit signed
+        a = random.randint(-32768, 32767) 
+        b = random.randint(-32768, 32767) 
         
         dut.reset.value = 0
-        dut.i_a.value = a & 0xFFFF  # Mask to 16 bits
+        dut.i_a.value = a & 0xFFFF 
         dut.i_b.value = b & 0xFFFF
-        await Timer(10, unit="ns")  # Wait for propagation
+        await Timer(10, unit="ns")  
         
         result = int(dut.out_c.value)
-        expected = (a + b) & 0xFFFF  # Mask to 16 bits
-        
+        expected = (a + b) & 0xFFFF          
         # Convert for display
         result_signed = result if result < 32768 else result - 65536
         

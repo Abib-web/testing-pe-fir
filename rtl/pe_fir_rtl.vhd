@@ -14,13 +14,12 @@ entity pe_fir_rtl is
 end pe_fir_rtl;
 
 architecture rtl of pe_fir_rtl is
-    -- Signaux internes
     signal reg_out_x : std_logic_vector(N-1 downto 0);
     signal mult_result : std_logic_vector(2*N-1 downto 0);
     signal add_result : std_logic_vector(2*N-1 downto 0);
     
 begin
-    -- 1. Registre sur x (latence 1 cycle)
+    -- 1. Registre sur x 
     reg_inst : entity work.reg_rtl
         generic map (N => N)
         port map (
@@ -30,7 +29,7 @@ begin
             out_r => reg_out_x
         );
     
-    -- out_x est la sortie du registre
+
     out_x <= reg_out_x;
     
     -- 2. Multiplicateur combinatoire
@@ -38,7 +37,7 @@ begin
         generic map (N => N)
         port map (
             i_a => w,
-            i_b => reg_out_x,  -- x retardé d'un cycle
+            i_b => reg_out_x,  
             reset => reset,
             out_c => mult_result
         );
@@ -50,7 +49,7 @@ begin
             i_a => i_s,
             i_b => mult_result,
             reset => reset,
-            out_c => out_s  -- Sortie directe
+            out_c => out_s  
         );
     
 end rtl;

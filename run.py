@@ -6,12 +6,12 @@ GHDL_ROOT = r"C:\Users\o.kone\OneDrive - Aldes Aeraulique\Desktop\ghdl"
 os.environ["PATH"] = GHDL_ROOT + r"\bin;" + os.environ["PATH"]
 os.environ["GHDL_PREFIX"] = GHDL_ROOT + r"\lib\ghdl"
 
-""" # Test de l'additionneur
+# Test de l'additionneur
 run(
     simulator="ghdl",
     vhdl_sources=["rtl/add_rtl.vhd"],
     toplevel="add_rtl",
-    module="tests.test_add",  # Test spécifique à l'additionneur
+    module="tests.test_add", 
     vhdl_compile_args=["--std=08"],
 )
 
@@ -31,7 +31,8 @@ run(
     toplevel="reg_rtl",
     module="tests.test_reg",  
     vhdl_compile_args=["--std=08"],
-) """
+) 
+# Test du pe filtre fir
 run(
     simulator="ghdl",
     vhdl_sources=[
