@@ -35,10 +35,10 @@ run(
 run(
     simulator="ghdl",
     vhdl_sources=[
-        "rtl/add_rtl.vhd",    # Nécessaire pour pe_fir_rtl
-        "rtl/mult_rtl.vhd",   # Nécessaire pour pe_fir_rtl  
-        "rtl/reg_rtl.vhd",    # Nécessaire pour pe_fir_rtl
-        "rtl/pe_fir_rtl.vhd", # Top-level
+        "rtl/add_rtl.vhd",   
+        "rtl/mult_rtl.vhd",  
+        "rtl/reg_rtl.vhd",   
+        "rtl/pe_fir_rtl.vhd", 
     ],
     toplevel="pe_fir_rtl",
     module="tests.test_pe",  
