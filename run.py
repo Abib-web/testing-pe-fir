@@ -1,11 +1,6 @@
 import os
 from cocotb_test.simulator import run
 
-GHDL_ROOT = r"C:\Users\o.kone\OneDrive - Aldes Aeraulique\Desktop\ghdl"
-
-os.environ["PATH"] = GHDL_ROOT + r"\bin;" + os.environ["PATH"]
-os.environ["GHDL_PREFIX"] = GHDL_ROOT + r"\lib\ghdl"
-
 """ # Test de l'additionneur
 run(
     simulator="ghdl",
@@ -35,11 +30,11 @@ run(
 run(
     simulator="ghdl",
     vhdl_sources=[
-        "rtl/add_rtl.vhd",    # Nécessaire pour pe_fir_rtl
-        "rtl/mult_rtl.vhd",   # Nécessaire pour pe_fir_rtl  
-        "rtl/reg_rtl.vhd",    # Nécessaire pour pe_fir_rtl
-        "rtl/pe_fir_rtl.vhd", # Top-level
-    ],
+        "rtl/add_rtl.vhd",   
+        "rtl/mult_rtl.vhd",    
+        "rtl/reg_rtl.vhd",   
+        "rtl/pe_fir_rtl.vhd",
+        ],
     toplevel="pe_fir_rtl",
     module="tests.test_pe",  
     vhdl_compile_args=["--std=08"],
